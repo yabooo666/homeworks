@@ -1,2 +1,4 @@
 .agents/
 yabo/
+__pycache__/
+

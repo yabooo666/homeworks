@@ -1,0 +1,346 @@
+[
+    {
+        "student_id": 3,
+        "first_name": "Zachary",
+        "last_name": "Wheeler",
+        "email": "williamssuzanne@example.org",
+        "age": 46,
+        "is_active": true
+    },
+    {
+        "student_id": 4,
+        "first_name": "Lisa",
+        "last_name": "Walsh",
+        "email": "natasha40@example.org",
+        "age": 45,
+        "is_active": true
+    },
+    {
+        "student_id": 5,
+        "first_name": "Brian",
+        "last_name": "Hernandez",
+        "email": "james01@example.com",
+        "age": 40,
+        "is_active": true
+    },
+    {
+        "student_id": 8,
+        "first_name": "Amy",
+        "last_name": "Newton",
+        "email": "qfrancis@example.net",
+        "age": 40,
+        "is_active": true
+    },
+    {
+        "student_id": 11,
+        "first_name": "Dustin",
+        "last_name": "Krueger",
+        "email": "nicolemoore@example.net",
+        "age": 50,
+        "is_active": true
+    },
+    {
+        "student_id": 13,
+        "first_name": "Donna",
+        "last_name": "George",
+        "email": "paulcooper@example.com",
+        "age": 29,
+        "is_active": true
+    },
+    {
+        "student_id": 16,
+        "first_name": "Lonnie",
+        "last_name": "Torres",
+        "email": "davidmiller@example.com",
+        "age": 36,
+        "is_active": true
+    },
+    {
+        "student_id": 25,
+        "first_name": "Briana",
+        "last_name": "Brown",
+        "email": "callahanashley@example.org",
+        "age": 30,
+        "is_active": true
+    },
+    {
+        "student_id": 26,
+        "first_name": "Alisha",
+        "last_name": "Mclaughlin",
+        "email": "roger88@example.com",
+        "age": 34,
+        "is_active": true
+    },
+    {
+        "student_id": 30,
+        "first_name": "Teresa",
+        "last_name": "Jordan",
+        "email": "kingsheena@example.net",
+        "age": 56,
+        "is_active": true
+    },
+    {
+        "student_id": 31,
+        "first_name": "Rebecca",
+        "last_name": "Martinez",
+        "email": "melaniesampson@example.com",
+        "age": 26,
+        "is_active": true
+    },
+    {
+        "student_id": 32,
+        "first_name": "Kara",
+        "last_name": "Tran",
+        "email": "selena51@example.org",
+        "age": 36,
+        "is_active": true
+    },
+    {
+        "student_id": 34,
+        "first_name": "Priscilla",
+        "last_name": "Williams",
+        "email": "pharper@example.org",
+        "age": 42,
+        "is_active": true
+    },
+    {
+        "student_id": 35,
+        "first_name": "Alexis",
+        "last_name": "Moon",
+        "email": "matthew58@example.net",
+        "age": 67,
+        "is_active": true
+    },
+    {
+        "student_id": 38,
+        "first_name": "Carol",
+        "last_name": "Singleton",
+        "email": "carterkelly@example.org",
+        "age": 37,
+        "is_active": true
+    },
+    {
+        "student_id": 39,
+        "first_name": "Melvin",
+        "last_name": "Hobbs",
+        "email": "yochoa@example.net",
+        "age": 40,
+        "is_active": true
+    },
+    {
+        "student_id": 40,
+        "first_name": "Yesenia",
+        "last_name": "Lopez",
+        "email": "jamesbates@example.net",
+        "age": 39,
+        "is_active": true
+    },
+    {
+        "student_id": 41,
+        "first_name": "Leslie",
+        "last_name": "Gallegos",
+        "email": "zacharysanchez@example.net",
+        "age": 59,
+        "is_active": true
+    },
+    {
+        "student_id": 47,
+        "first_name": "Amanda",
+        "last_name": "Erickson",
+        "email": "lynchedward@example.net",
+        "age": 62,
+        "is_active": true
+    },
+    {
+        "student_id": 48,
+        "first_name": "Brian",
+        "last_name": "Evans",
+        "email": "mike54@example.net",
+        "age": 69,
+        "is_active": true
+    },
+    {
+        "student_id": 51,
+        "first_name": "Maria",
+        "last_name": "Carter",
+        "email": "sanchezdavid@example.com",
+        "age": 31,
+        "is_active": true
+    },
+    {
+        "student_id": 52,
+        "first_name": "Jamie",
+        "last_name": "Taylor",
+        "email": "xdavidson@example.org",
+        "age": 47,
+        "is_active": true
+    },
+    {
+        "student_id": 54,
+        "first_name": "Chad",
+        "last_name": "Rojas",
+        "email": "emily34@example.net",
+        "age": 20,
+        "is_active": true
+    },
+    {
+        "student_id": 59,
+        "first_name": "Jennifer",
+        "last_name": "Fuller",
+        "email": "roberthenderson@example.com",
+        "age": 32,
+        "is_active": true
+    },
+    {
+        "student_id": 67,
+        "first_name": "Amy",
+        "last_name": "Mullins",
+        "email": "garrisondonna@example.org",
+        "age": 23,
+        "is_active": true
+    },
+    {
+        "student_id": 68,
+        "first_name": "Brenda",
+        "last_name": "Schultz",
+        "email": "jarellano@example.org",
+        "age": 54,
+        "is_active": true
+    },
+    {
+        "student_id": 69,
+        "first_name": "John",
+        "last_name": "Gray",
+        "email": "mannmindy@example.net",
+        "age": 35,
+        "is_active": true
+    },
+    {
+        "student_id": 70,
+        "first_name": "Linda",
+        "last_name": "Patel",
+        "email": "romerodavid@example.com",
+        "age": 51,
+        "is_active": true
+    },
+    {
+        "student_id": 71,
+        "first_name": "Cameron",
+        "last_name": "Mitchell",
+        "email": "kendra55@example.org",
+        "age": 22,
+        "is_active": true
+    },
+    {
+        "student_id": 73,
+        "first_name": "Steven",
+        "last_name": "Anderson",
+        "email": "james72@example.com",
+        "age": 24,
+        "is_active": true
+    },
+    {
+        "student_id": 74,
+        "first_name": "Paul",
+        "last_name": "Martin",
+        "email": "erin46@example.org",
+        "age": 30,
+        "is_active": true
+    },
+    {
+        "student_id": 75,
+        "first_name": "Benjamin",
+        "last_name": "Owen",
+        "email": "antonioross@example.org",
+        "age": 50,
+        "is_active": true
+    },
+    {
+        "student_id": 80,
+        "first_name": "Brett",
+        "last_name": "Johnson",
+        "email": "kathleen90@example.org",
+        "age": 49,
+        "is_active": true
+    },
+    {
+        "student_id": 82,
+        "first_name": "Diana",
+        "last_name": "Miller",
+        "email": "cristina09@example.org",
+        "age": 32,
+        "is_active": true
+    },
+    {
+        "student_id": 84,
+        "first_name": "Lauren",
+        "last_name": "Nicholson",
+        "email": "joneschristopher@example.net",
+        "age": 63,
+        "is_active": true
+    },
+    {
+        "student_id": 86,
+        "first_name": "Diane",
+        "last_name": "Oneill",
+        "email": "rodriguezmichael@example.net",
+        "age": 62,
+        "is_active": true
+    },
+    {
+        "student_id": 87,
+        "first_name": "Melissa",
+        "last_name": "Kelly",
+        "email": "quinnanna@example.org",
+        "age": 38,
+        "is_active": true
+    },
+    {
+        "student_id": 88,
+        "first_name": "Amy",
+        "last_name": "Scott",
+        "email": "stacy44@example.org",
+        "age": 42,
+        "is_active": true
+    },
+    {
+        "student_id": 92,
+        "first_name": "Amber",
+        "last_name": "Griffin",
+        "email": "sergio01@example.net",
+        "age": 43,
+        "is_active": true
+    },
+    {
+        "student_id": 95,
+        "first_name": "Mary",
+        "last_name": "Richards",
+        "email": "cranecharlotte@example.net",
+        "age": 57,
+        "is_active": true
+    },
+    {
+        "student_id": 96,
+        "first_name": "Kimberly",
+        "last_name": "Dorsey",
+        "email": "julie17@example.com",
+        "age": 67,
+        "is_active": true
+    },
+    {
+        "student_id": 99,
+        "first_name": "David",
+        "last_name": "Gonzales",
+        "email": "fritzrichard@example.com",
+        "age": 31,
+        "is_active": true
+    },
+    {
+        "student_id": 100,
+        "first_name": "Ryan",
+        "last_name": "Torres",
+        "email": "mshaw@example.org",
+        "age": 36,
+        "is_active": true
+    }
+]
