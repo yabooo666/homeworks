@@ -1,0 +1,131 @@
+# ================================================================
+# Django ORM Homework Tasks (Create, Read, Update, Delete)
+# ================================================================
+
+from project1.models import Lecturer, Course, Student
+
+# ================================================================
+# 1. CREATE (შექმნა)
+# ================================================================
+
+# შექმენით 3 ლექტორი
+l1 = Lecturer.objects.create(first_name="გიორგი", last_name="ბერიძე", email="giorgi.b@step.ge", department="კომპიუტერული მეცნიერებები")
+l2 = Lecturer.objects.create(first_name="დავით", last_name="კაპანაძე", email="davit.k@step.ge", department="ვებ დეველოპმენტი")
+l3 = Lecturer.objects.create(first_name="ნინო", last_name="ჩხეიძე", email="nino.ch@step.ge", department="მონაცემთა ბაზები")
+
+# შექმენით 5 კურსი და თითოეულს მიუთითეთ ლექტორი
+c1 = Course.objects.create(title="Python Basics", description="საბაზისო პითონი", credits=4, lecturer=l1)
+c2 = Course.objects.create(title="Django Web Development", description="ვებ დეველოპმენტი Django-ზე", credits=6, lecturer=l2)
+c3 = Course.objects.create(title="PostgreSQL & Databases", description="მონაცემთა ბაზების კურსი", credits=5, lecturer=l3)
+c4 = Course.objects.create(title="Algorithms & Data Structures", description="ალგორითმები", credits=6, lecturer=l1)
+c5 = Course.objects.create(title="Frontend with React", description="ფრონტენდ საფუძვლები", credits=4, lecturer=l2)
+
+# შექმენით 10 სტუდენტი და თითოეული ჩაწერეთ მინიმუმ ორ კურსზე
+s1 = Student.objects.create(first_name="ნიკა", last_name="პაპასკირი", email="nika@gmail.com")
+s1.courses.set([c1, c2])
+
+s2 = Student.objects.create(first_name="ლუკა", last_name="მაისურაძე", email="luka@gmail.com")
+s2.courses.set([c2, c3])
+
+s3 = Student.objects.create(first_name="მარიამ", last_name="გელაშვილი", email="mariam@gmail.com")
+s3.courses.set([c1, c3, c4])
+
+s4 = Student.objects.create(first_name="სალომე", last_name="ჯაფარიძე", email="salome@gmail.com")
+s4.courses.set([c4, c5])
+
+s5 = Student.objects.create(first_name="ირაკლი", last_name="ლომიძე", email="irakli@gmail.com")
+s5.courses.set([c1, c5])
+
+s6 = Student.objects.create(first_name="თამარ", last_name="კვარაცხელია", email="tamar@gmail.com")
+s6.courses.set([c2, c4])
+
+s7 = Student.objects.create(first_name="ზურა", last_name="ნოზაძე", email="zura@gmail.com")
+s7.courses.set([c3, c5])
+
+s8 = Student.objects.create(first_name="ანა", last_name="წიკლაური", email="ana@gmail.com")
+s8.courses.set([c1, c2, c3])
+
+s9 = Student.objects.create(first_name="ვახო", last_name="შენგელია", email="vakho@gmail.com")
+s9.courses.set([c4, c5])
+
+s10 = Student.objects.create(first_name="ნუცა", last_name="ბიბილაშვილი", email="nutsa@gmail.com")
+s10.courses.set([c2, c3])
+
+
+# ================================================================
+# 2. READ (გამოტანა)
+# ================================================================
+
+# გამოიტანეთ ყველა სტუდენტი
+all_students = Student.objects.all()
+
+# გამოიტანეთ ყველა კურსი
+all_courses = Course.objects.all()
+
+# გამოიტანეთ ყველა ლექტორი
+all_lecturers = Lecturer.objects.all()
+
+# იპოვეთ კონკრეტული სტუდენტი id-ის მიხედვით
+student_by_id = Student.objects.get(id=1)
+
+# იპოვეთ კონკრეტული კურსი სახელის მიხედვით
+course_by_name = Course.objects.get(title="Python Basics")
+
+# გამოიტანეთ ყველა კურსი, რომელსაც კონკრეტული ლექტორი ასწავლის
+lecturer_courses = l1.courses.all()
+# ან: Course.objects.filter(lecturer=l1)
+
+# გამოიტანეთ ყველა სტუდენტი, რომელიც კონკრეტულ კურსზე სწავლობს
+course_students = c1.students.all()
+# ან: Student.objects.filter(courses=c1)
+
+# კონკრეტული სტუდენტისთვის გამოიტანეთ ყველა კურსი
+student_courses = s1.courses.all()
+
+
+# ================================================================
+# 3. UPDATE (განახლება)
+# ================================================================
+
+# კონკრეტულ სტუდენტს შეუცვალეთ სახელი
+s1.first_name = "ნიკოლოზ"
+s1.save()
+
+# კონკრეტულ ლექტორს შეუცვალეთ გვარი
+l1.last_name = "ბერიძე-გვარამია"
+l1.save()
+
+# კონკრეტულ კურსს შეუცვალეთ დასახელება
+c1.title = "Advanced Python Programming"
+c1.save()
+
+# სტუდენტს დაამატეთ კიდევ ერთი კურსი
+s1.courses.add(c3)
+
+# სტუდენტს წაუშალეთ ერთი კურსი
+s1.courses.remove(c2)
+
+# სტუდენტი გადაიყვანეთ სხვა კურსზე (ერთი კურსი წაშალეთ და მეორე დაამატეთ)
+s1.courses.remove(c1)
+s1.courses.add(c5)
+
+# კონკრეტულ კურსს შეუცვალეთ ლექტორი
+c2.lecturer = l3
+c2.save()
+
+
+# ================================================================
+# 4. DELETE (წაშლა)
+# ================================================================
+
+# წაშალეთ კონკრეტული სტუდენტი
+s10.delete()
+
+# წაშალეთ კონკრეტული კურსი
+c5.delete()
+
+# წაშალეთ კონკრეტული ლექტორი
+l2.delete()
+
+# გაასუფთავეთ კონკრეტული სტუდენტის ყველა კურსი (clear())
+s1.courses.clear()
