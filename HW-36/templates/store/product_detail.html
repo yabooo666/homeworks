@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.name }} - დეტალები{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+    <!-- Modular Sidebar -->
+    {% include 'includes/sidebar.html' %}
+
+    <!-- Product Detail Column -->
+    <div class="col-lg-9 col-md-12">
+        <div class="mb-4">
+            <a href="{% url 'home' %}" class="btn btn-outline-secondary btn-sm px-3 rounded-pill">
+                <i class="fas fa-arrow-left me-1"></i> მთავარ გვერდზე დაბრუნება
+            </a>
+        </div>
+
+        <div class="card border-0 shadow-sm rounded-3 overflow-hidden">
+            <div class="card-body p-4 p-md-5">
+                <div class="row g-4 align-items-center">
+                    <!-- Product Image Section -->
+                    <div class="col-md-5 text-center">
+                        <div class="p-3 bg-light rounded-3 d-flex align-items-center justify-content-center border" style="min-height: 280px;">
+                            {% if product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid rounded" style="max-height: 260px; object-fit: contain;">
+                            {% else %}
+                            <div class="text-center text-muted">
+                                <i class="fas fa-image fa-5x mb-2 opacity-50"></i>
+                                <div class="small">სურათი არ არის ატვირთული</div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- Product Info Section -->
+                    <div class="col-md-7">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <a href="{% url 'category_detail' product.category.id %}" class="badge bg-secondary text-decoration-none px-3 py-2">
+                                {{ product.category.name }}
+                            </a>
+                            {% if product.has_discount %}
+                            <span class="badge bg-danger px-3 py-2"><i class="fas fa-bolt me-1"></i> SALE</span>
+                            {% endif %}
+                        </div>
+
+                        <h2 class="font-weight-bold text-dark my-2">{{ product.name }}</h2>
+                        <small class="text-muted font-monospace d-block mb-3">Slug: {{ product.slug }}</small>
+
+                        <div class="my-3 p-3 bg-light rounded-3 d-flex align-items-baseline gap-3">
+                            {% if product.has_discount and product.discount_price %}
+                            <span class="display-6 font-weight-bold text-danger">${{ product.discount_price }}</span>
+                            <span class="fs-4 text-muted text-decoration-line-through">${{ product.price }}</span>
+                            {% else %}
+                            <span class="display-6 font-weight-bold text-primary">${{ product.price }}</span>
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-4">
+                            <h6 class="font-weight-bold text-dark mb-1">აღწერა:</h6>
+                            <p class="text-muted leading-relaxed">{{ product.description }}</p>
+                        </div>
+
+                        <div class="row g-3 py-2 border-top border-bottom mb-4">
+                            <div class="col-sm-6">
+                                <small class="text-muted d-block">სტატუსი:</small>
+                                {% if product.is_available %}
+                                <span class="text-success font-weight-bold"><i class="fas fa-check-circle me-1"></i> ხელმისაწვდომია</span>
+                                {% else %}
+                                <span class="text-danger font-weight-bold"><i class="fas fa-times-circle me-1"></i> არ არის მარაგში</span>
+                                {% endif %}
+                            </div>
+                            <div class="col-sm-6">
+                                <small class="text-muted d-block">დამატების თარიღი:</small>
+                                <span class="text-dark font-weight-bold">{{ product.created_at|date:"d M Y, H:i" }}</span>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="d-flex gap-2">
+                            <a href="{% url 'product_update' product.pk %}" class="btn btn-warning px-4 py-2 text-dark font-weight-bold rounded-pill">
+                                <i class="fas fa-edit me-1"></i> რედაქტირება
+                            </a>
+                            <a href="{% url 'product_delete' product.pk %}" class="btn btn-outline-danger px-4 py-2 rounded-pill">
+                                <i class="fas fa-trash me-1"></i> წაშლა
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

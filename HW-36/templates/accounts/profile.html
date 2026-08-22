@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}პირადი პროფილი - Electro Store{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10">
+        <div class="card border-0 shadow-sm rounded-3">
+            <div class="card-header bg-primary text-white py-3 rounded-top-3 d-flex justify-content-between align-items-center">
+                <h4 class="mb-0 text-white font-weight-bold"><i class="fas fa-user-circle me-2"></i> პირადი პროფილი</h4>
+                <a href="{% url 'profile_edit' %}" class="btn btn-sm btn-light rounded-pill px-3 font-weight-bold">
+                    <i class="fas fa-edit me-1"></i> რედაქტირება
+                </a>
+            </div>
+            <div class="card-body p-4 p-md-5">
+                <div class="d-flex align-items-center mb-4 pb-3 border-bottom">
+                    <div class="rounded-circle bg-light d-flex align-items-center justify-content-center text-primary fs-1 border me-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <h3 class="mb-1 text-dark font-weight-bold">{{ user.first_name }} {{ user.last_name }}</h3>
+                        <span class="badge bg-primary fs-6">@{{ user.username }}</span>
+                    </div>
+                </div>
+
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6">
+                        <div class="p-3 bg-light rounded-3 border">
+                            <small class="text-muted text-uppercase d-block font-weight-bold mb-1">ელ-ფოსტა</small>
+                            <span class="fs-6 font-weight-bold text-dark">{{ user.email|default:"არ არის მითითებული" }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 bg-light rounded-3 border">
+                            <small class="text-muted text-uppercase d-block font-weight-bold mb-1">მომხმარებლის სახელი</small>
+                            <span class="fs-6 font-weight-bold text-dark">{{ user.username }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 bg-light rounded-3 border">
+                            <small class="text-muted text-uppercase d-block font-weight-bold mb-1">რეგისტრაციის თარიღი</small>
+                            <span class="fs-6 font-weight-bold text-dark">{{ user.date_joined|date:"d M Y, H:i" }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 bg-light rounded-3 border">
+                            <small class="text-muted text-uppercase d-block font-weight-bold mb-1">ბოლო აქტივობა</small>
+                            <span class="fs-6 font-weight-bold text-dark">{{ user.last_login|date:"d M Y, H:i"|default:"პირველი შესვლა" }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <a href="{% url 'profile_edit' %}" class="btn btn-warning rounded-pill px-4 font-weight-bold text-dark">
+                        <i class="fas fa-edit me-1"></i> პროფილის განახლება
+                    </a>
+                    <a href="{% url 'logout' %}" class="btn btn-outline-danger rounded-pill px-4">
+                        <i class="fas fa-sign-out-alt me-1"></i> გამოსვლა
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

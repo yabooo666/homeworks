@@ -1,0 +1,52 @@
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-item">
+                    <h4 class="text-white mb-3"><i class="fas fa-shopping-bag text-primary me-2"></i>Electro</h4>
+                    <p class="mb-4">Online Electronics & Tech Store. Discover the latest gadgets, laptops, smartphones, and accessories with exclusive discounts.</p>
+                    <div class="d-flex align-items-center">
+                        <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-primary btn-square" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-item">
+                    <h4 class="text-white mb-3"><i class="fas fa-history text-warning me-2"></i>Recently Added (Top 5)</h4>
+                    <ul class="list-unstyled">
+                        {% for item in latest_products %}
+                        <li class="mb-2">
+                            <a href="{% url 'product_detail' item.pk %}" class="text-white-50 text-decoration-none">
+                                <i class="fas fa-chevron-right text-primary me-2"></i>{{ item.name }}
+                                <span class="badge bg-secondary ms-1">${{ item.price }}</span>
+                            </a>
+                        </li>
+                        {% empty %}
+                        <li class="text-white-50">No products available.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-item">
+                    <h4 class="text-white mb-3">Quick Navigation</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="{% url 'home' %}" class="text-white-50 text-decoration-none"><i class="fas fa-home text-primary me-2"></i>All Products</a></li>
+                        <li class="mb-2"><a href="{% url 'sales' %}" class="text-white-50 text-decoration-none"><i class="fas fa-tags text-primary me-2"></i>Discounts (SALE)</a></li>
+                        <li class="mb-2"><a href="{% url 'product_create' %}" class="text-white-50 text-decoration-none"><i class="fas fa-plus-circle text-primary me-2"></i>Add New Product</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid copyright bg-darker py-4 border-top border-secondary">
+        <div class="container text-center">
+            <p class="mb-0 text-white-50">&copy; {% now "Y" %} Electro Store. All Rights Reserved. Powered by Django.</p>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->

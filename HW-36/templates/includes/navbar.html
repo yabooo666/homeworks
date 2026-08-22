@@ -1,0 +1,123 @@
+{% load static %}
+<!-- Topbar Start -->
+<div class="container-fluid px-5 d-none border-bottom d-lg-block" style="background-color: #f8fafc;">
+    <div class="row gx-0 align-items-center">
+        <div class="col-lg-6 text-center text-lg-start mb-lg-0">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <span class="text-muted me-3"><i class="fas fa-shield-alt text-primary me-1"></i> Official Electro Store</span>
+                <span class="text-muted"><i class="fas fa-clock text-primary me-1"></i> 24/7 Support</span>
+            </div>
+        </div>
+        <div class="col-lg-6 text-center text-lg-end">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a href="{% url 'sales' %}" class="badge bg-danger text-white me-3 text-decoration-none px-3 py-2">
+                    <i class="fas fa-bolt me-1"></i> Special Discounts (SALE)
+                </a>
+
+                {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}" class="btn btn-sm btn-outline-dark me-2 px-3">
+                    <i class="fas fa-user-circle me-1"></i> @{{ user.username }}
+                </a>
+                <a href="{% url 'logout' %}" class="btn btn-sm btn-outline-danger px-3">
+                    <i class="fas fa-sign-out-alt me-1"></i> Logout
+                </a>
+                {% else %}
+                <a href="{% url 'login' %}" class="btn btn-sm btn-outline-primary me-2 px-3">
+                    <i class="fas fa-sign-in-alt me-1"></i> შესვლა
+                </a>
+                <a href="{% url 'register' %}" class="btn btn-sm btn-primary text-white px-3">
+                    <i class="fas fa-user-plus me-1"></i> რეგისტრაცია
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Header Search & Brand Start -->
+<div class="container-fluid px-5 py-3 d-none d-lg-block bg-white border-bottom">
+    <div class="row gx-0 align-items-center text-center">
+        <div class="col-md-4 col-lg-3 text-center text-lg-start">
+            <a href="{% url 'home' %}" class="navbar-brand p-0">
+                <h1 class="display-6 text-primary m-0"><i class="fas fa-shopping-bag text-secondary me-2"></i>Electro</h1>
+            </a>
+        </div>
+        <div class="col-md-4 col-lg-6 text-center">
+            <form method="GET" action="{% url 'home' %}" class="position-relative">
+                <div class="d-flex border rounded-pill overflow-hidden">
+                    <input class="form-control border-0 px-4 py-2" type="text" name="q" value="{{ current_q }}" placeholder="მოძებნეთ პროდუქტები...">
+                    {% if current_category %}
+                    <input type="hidden" name="category" value="{{ current_category }}">
+                    {% endif %}
+                    {% if current_sort %}
+                    <input type="hidden" name="sort" value="{{ current_sort }}">
+                    {% endif %}
+                    <button type="submit" class="btn btn-primary rounded-0 px-4"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4 col-lg-3 text-center text-lg-end">
+            <a href="{% url 'product_create' %}" class="btn btn-primary rounded-pill px-4 py-2">
+                <i class="fas fa-plus me-1"></i> New Product
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Main Navbar Start -->
+<div class="container-fluid nav-bar p-0">
+    <div class="row gx-0 bg-primary px-5 align-items-center">
+        <div class="col-lg-3 d-none d-lg-block">
+            <div class="dropdown">
+                <button class="btn btn-secondary text-white w-100 py-3 text-start rounded-0 dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    <i class="fa fa-bars me-2"></i> Categories
+                </button>
+                <ul class="dropdown-menu w-100 rounded-0 shadow-sm border-0 m-0">
+                    <li><a class="dropdown-item py-2" href="{% url 'home' %}"><strong>All Products</strong></a></li>
+                    <li><hr class="dropdown-divider my-1"></li>
+                    {% for cat in categories %}
+                    <li>
+                        <a class="dropdown-item py-2 d-flex justify-content-between align-items-center" href="{% url 'category_detail' cat.id %}">
+                            <span>{{ cat.name }}</span>
+                            <span class="badge bg-light text-dark border">({{ cat.product_count }})</span>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-lg-9">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-0">
+                <a href="{% url 'home' %}" class="navbar-brand d-block d-lg-none">
+                    <h1 class="display-6 text-white m-0"><i class="fas fa-shopping-bag text-secondary me-2"></i>Electro</h1>
+                </a>
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav me-auto py-2">
+                        <a href="{% url 'home' %}" class="nav-item nav-link {% if not category and not request.resolver_match.url_name == 'sales' and not 'accounts' in request.path %}active{% endif %}">Home</a>
+                        <a href="{% url 'sales' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'sales' %}active{% endif %} text-warning font-weight-bold">
+                            <i class="fas fa-tags me-1"></i> SALE Products
+                        </a>
+                        <a href="{% url 'product_create' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'product_create' %}active{% endif %}">
+                            <i class="fas fa-plus-circle me-1"></i> Add Product
+                        </a>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'profile' %}" class="nav-item nav-link {% if 'profile' in request.path %}active{% endif %}">
+                            <i class="fas fa-user-circle me-1"></i> პროფილი
+                        </a>
+                        <a href="{% url 'logout' %}" class="nav-item nav-link d-lg-none text-danger">
+                            <i class="fas fa-sign-out-alt me-1"></i> გამოსვლა
+                        </a>
+                        {% else %}
+                        <a href="{% url 'login' %}" class="nav-item nav-link d-lg-none">შესვლა</a>
+                        <a href="{% url 'register' %}" class="nav-item nav-link d-lg-none">რეგისტრაცია</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Navbar End -->
